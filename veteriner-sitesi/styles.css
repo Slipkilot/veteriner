@@ -1,0 +1,386 @@
+/* Genel Sıfırlama ve Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #F8F5EE; /* Açık Bej Arka Plan */
+}
+
+/* --- Header Stilleri --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #F8F5EE;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3B5998; /* Mavi Logo Rengi */
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 8px;
+    color: #FF5A5F; /* Pati İkon Rengi */
+}
+
+/* Navigasyon (Sağ Üst Menü) */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #555;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.nav-item:hover {
+    color: #3B5998;
+}
+
+.btn-call {
+    background-color: #3B5998; /* Mavi Buton */
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.btn-call i {
+    margin-right: 5px;
+}
+
+.btn-call:hover {
+    background-color: #2D4A85;
+}
+
+/* --- Hero (Ana İçerik) Stilleri --- */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 40px;
+    min-height: 80vh; /* Ekranın büyük kısmını kaplaması için */
+}
+
+.hero-content {
+    max-width: 500px;
+    margin-right: 80px;
+}
+
+.main-title {
+    font-size: 72px;
+    color: #3B5998;
+    line-height: 1;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.btn-schedule {
+    background-color: #FF5A5F; /* Turuncu/Kırmızı Buton */
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn-schedule:hover {
+    background-color: #E04D51;
+}
+
+/* Görsel Alanı */
+.hero-image-container {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: #FFB3A7; /* Görselin arka planındaki Turuncu Çember */
+    /* Buraya görselin kendisi eklenebilir */
+    background-image: url('kopek.jpg'); /* Kendi görselinizin adını buraya yazın */
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Responsive (Küçük Ekranlar İçin) Ayarlar --- */
+@media (max-width: 900px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+    .hero-content {
+        margin-right: 0;
+        margin-bottom: 50px;
+    }
+    
+    .main-title {
+        font-size: 50px;
+    }
+
+    .hero-image-container {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav {
+        margin-top: 15px;
+        gap: 15px;
+    }
+    
+    .btn-call {
+        padding: 8px 12px;
+    }
+    
+    .main-title {
+        font-size: 40px;
+    }
+}
+
+.nav-item.active {
+    color: #3B5998; /* Anasayfadaki hover rengi */
+    font-weight: bold;
+}
+
+.about-section {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-intro {
+    margin-bottom: 60px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #eee;
+}
+
+.about-title {
+    font-size: 48px;
+    color: #3B5998;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.about-text {
+    font-size: 18px;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Takım (Veteriner) Kartları */
+.team-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+}
+
+.vet-card {
+    flex: 1;
+    max-width: 450px;
+    padding: 20px;
+    background-color: #ffffff; /* Hafif bir kart arka planı */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.vet-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    background-color: #FFB3A7; /* Ana sayfadaki turuncu çember */
+    background-size: cover;
+    background-position: center;
+    border: 5px solid #FF5A5F; /* Çemberi çevreleyen belirgin bir renk */
+}
+
+.vet-name {
+    font-size: 28px;
+    color: #3B5998;
+    margin-bottom: 5px;
+}
+
+.vet-title {
+    font-size: 16px;
+    color: #FF5A5F;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.vet-bio {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 900px) {
+    .team-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-title {
+        font-size: 38px;
+    }
+    .vet-card {
+        margin-bottom: 30px;
+        max-width: 100%;
+    }
+}
+
+.contact-section {
+    padding: 60px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-title {
+    font-size: 48px;
+    color: #3B5998;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.contact-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.contact-content-wrapper {
+    display: flex;
+    gap: 40px;
+    text-align: left;
+}
+
+.contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* İletişim Bilgi Öğeleri */
+.info-item {
+    display: flex;
+    align-items: center;
+}
+
+.contact-icon {
+    font-size: 30px;
+    color: #FF5A5F; /* Turuncu/Kırmızı İkon Rengi */
+    width: 50px;
+    flex-shrink: 0; /* İkonun sabit genişlikte kalmasını sağlar */
+}
+
+.info-details {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    font-size: 14px;
+    color: #999;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.info-value, .info-value a {
+    font-size: 18px;
+    color: #3B5998;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.info-value a:hover {
+    color: #FF5A5F;
+}
+
+.info-value p {
+    margin: 0;
+    font-weight: normal;
+    color: #555;
+}
+
+.contact-btn {
+    align-self: flex-start; /* Butonun sola yaslanmasını sağlar */
+    margin-top: 20px;
+}
+
+/* Harita Kısmı */
+.map-container {
+    flex: 2;
+    min-height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 900px) {
+    .contact-content-wrapper {
+        flex-direction: column;
+    }
+    .map-container {
+        order: 1; /* Haritanın yukarı çıkmasını sağlar */
+        min-height: 300px;
+    }
+    .contact-info {
+        order: 2;
+        padding: 0;
+        gap: 20px;
+    }
+    .contact-title {
+        font-size: 38px;
+    }
+    .contact-btn {
+        align-self: stretch; /* Butonun tam genişlik olmasını sağlar */
+    }
+}

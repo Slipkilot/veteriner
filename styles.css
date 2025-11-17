@@ -179,6 +179,8 @@ body {
     .map-container {
         order: 1; /* Haritanın yukarı çıkmasını sağlar */
         min-height: 300px;
+        max-height: 400px; /* Çok uzun olmasını engeller */
+        margin-bottom: 20px;
     }
     .contact-info {
         order: 2;
@@ -210,6 +212,7 @@ body {
     
     .btn-call {
         padding: 8px 12px;
+        white-space: nowrap;
     }
     
     .main-title {

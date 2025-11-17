@@ -119,16 +119,20 @@ body {
     background-color: #E04D51;
 }
 
-/* Görsel Alanı */
+/* Görsel Alanı (ORAN KORUMALI VE DUYARLI) */
 .hero-image-container {
-    width: 400px;
-    height: 400px;
+    /* Oran Koruma Metodu: width ve height eşit ve vw kullanılıyor */
+    width: 30vw; /* Ekranın %30'u kadar genişlik */
+    height: 30vw; /* Genişlik ile aynı yüksekliği koruyarak daire yapar (1:1 oran) */
+    max-width: 400px; /* En büyük boyutunu 400px ile sınırla */
+    max-height: 400px; /* Maksimum yüksekliği de sınırla */
+
     border-radius: 50%;
     background-color: #FFB3A7; /* Görselin arka planındaki Turuncu Çember */
-    /* Buraya görselin kendisi eklenebilir */
-    background-image: url('kopek.jpg'); /* Kendi görselinizin adını buraya yazın */
+    background-image: url('/kopek.png'); /* Kendi görselinizin adını buraya yazın */
     background-size: cover;
-    background-position: center;
+    /* Dikey pozisyonu %65'e yükselterek köpeği daha çok aşağı kaydırıyoruz */
+    background-position: center 65%; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -149,9 +153,47 @@ body {
         font-size: 50px;
     }
 
+    /* ESNEK ORAN KORUMALI GÜNCELLEME */
     .hero-image-container {
-        width: 300px;
-        height: 300px;
+        width: 60vw; /* Mobil ekranlarda ekranın %60'ı kadar olsun (daha büyük) */
+        height: 60vw; /* 1:1 oranı koru */
+        max-width: 350px;
+        max-height: 350px;
+    }
+    
+    .team-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-title {
+        font-size: 38px;
+    }
+    .vet-card {
+        margin-bottom: 30px;
+        max-width: 100%;
+    }
+    
+    .contact-content-wrapper {
+        flex-direction: column;
+    }
+    .map-container {
+        order: 1; /* Haritanın yukarı çıkmasını sağlar */
+        min-height: 300px;
+    }
+    .contact-info {
+        order: 2;
+        padding: 0;
+        gap: 20px;
+    }
+    .contact-title {
+        font-size: 38px;
+    }
+    .contact-btn {
+        align-self: stretch; /* Butonun tam genişlik olmasını sağlar */
+    }
+     .gallery-grid {
+        /* Tek sütunda daha geniş, iki sütunda daha dar gösterir */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
 
@@ -173,6 +215,14 @@ body {
     .main-title {
         font-size: 40px;
     }
+    
+    .running-dog-container img {
+        height: 60px; /* Daha küçük köpek */
+        animation: runAcross 10s linear infinite; /* Daha hızlı koşsun */
+    }
+    .footer-text {
+        margin-top: 60px;
+    }
 }
 
 .nav-item.active {
@@ -180,6 +230,7 @@ body {
     font-weight: bold;
 }
 
+/* --- Hakkımızda Sayfası Stilleri --- */
 .about-section {
     padding: 80px 40px;
     max-width: 1200px;
@@ -255,21 +306,8 @@ body {
     line-height: 1.6;
 }
 
-/* Responsive Düzenlemeler */
-@media (max-width: 900px) {
-    .team-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .about-title {
-        font-size: 38px;
-    }
-    .vet-card {
-        margin-bottom: 30px;
-        max-width: 100%;
-    }
-}
 
+/* --- İletişim Sayfası Stilleri --- */
 .contact-section {
     padding: 60px 40px;
     max-width: 1200px;
@@ -363,24 +401,90 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive Düzenlemeler */
-@media (max-width: 900px) {
-    .contact-content-wrapper {
-        flex-direction: column;
+
+/* --- Footer Stilleri ve Koşan Köpek Animasyonu (Tüm Sayfalar İçin) --- */
+.site-footer {
+    padding: 20px 40px;
+    background-color: #3B5998; /* Header ile uyumlu mavi */
+    color: white;
+    text-align: center;
+    position: relative; 
+    overflow: hidden; 
+    margin-top: 50px; 
+    min-height: 150px; 
+}
+
+.footer-text {
+    margin-top: 80px; 
+    font-size: 14px;
+}
+
+.running-dog-container {
+    position: absolute;
+    bottom: 0; 
+    height: 100px; 
+    width: 100%;
+}
+
+.running-dog-container img {
+    height: 80px; 
+    position: absolute;
+    bottom: 10px; 
+    left: -100px; 
+    animation: runAcross 15s linear infinite; 
+}
+
+/* Koşma Animasyonu Keyframes'i */
+@keyframes runAcross {
+    0% {
+        transform: translateX(0); 
     }
-    .map-container {
-        order: 1; /* Haritanın yukarı çıkmasını sağlar */
-        min-height: 300px;
+    100% {
+        transform: translateX(calc(100vw + 100px)); 
     }
-    .contact-info {
-        order: 2;
-        padding: 0;
-        gap: 20px;
-    }
-    .contact-title {
-        font-size: 38px;
-    }
-    .contact-btn {
-        align-self: stretch; /* Butonun tam genişlik olmasını sağlar */
-    }
+}
+
+/* --- Galeri Sayfası Stilleri --- */
+.gallery-section {
+    padding: 60px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gallery-title {
+    font-size: 48px;
+    color: #3B5998;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.gallery-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.photo-item {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.photo-item:hover {
+    transform: translateY(-5px);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 250px; /* Tüm fotoğrafların aynı boyutta görünmesi için */
+    object-fit: cover; /* Görseli kırparak sığdırır */
+    display: block;
 }

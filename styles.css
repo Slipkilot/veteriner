@@ -1,4 +1,4 @@
-/* Genel Sıfırlama ve Font */
+/* styles.css */
 * {
     margin: 0;
     padding: 0;
@@ -177,10 +177,19 @@ body {
         flex-direction: column;
     }
     .map-container {
-        order: 1; /* Haritanın yukarı çıkmasını sağlar */
-        min-height: 300px;
-        max-height: 400px; /* Çok uzun olmasını engeller */
+        order: 1;
+        width: 100%;
+        height: 350px;
+        border-radius: 10px;
+        overflow: hidden;
         margin-bottom: 20px;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+        
+        display: block;
     }
     .contact-info {
         order: 2;
@@ -397,12 +406,15 @@ body {
 
 /* Harita Kısmı */
 .map-container {
-    flex: 2;
-    min-height: 450px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 450px;
 }
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
 
 
 /* --- Footer Stilleri ve Koşan Köpek Animasyonu (Tüm Sayfalar İçin) --- */
